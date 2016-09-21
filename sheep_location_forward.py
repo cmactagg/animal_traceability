@@ -21,8 +21,8 @@ def dosomething(conn, infected_sheeps_input):
             (infected_sheeps_input[sp], infected_sheeps_input[sp], sp, infected_sheeps_input[sp],))
         for rowR2 in resultsR2:
             #print('ddd' + str(rowR2))
-            if rowR2[0] not in infected_sheeps_output or infected_sheeps_output[rowR2[0]] > rowR2[1]:
-                infected_sheeps_output[rowR2[0]] = rowR2[1]                
+            if rowR2['animal_eid'] not in infected_sheeps_output or infected_sheeps_output[rowR2['animal_eid']] > rowR2['exposure_date']:
+                infected_sheeps_output[rowR2['animal_eid']] = rowR2['exposure_date']                
                 new_rec_found = True
     if new_rec_found:
         print(infected_sheeps_output)
@@ -32,7 +32,7 @@ def dosomething(conn, infected_sheeps_input):
 
 
 connX = sqlite3.connect(dbpath)
-
+connX.row_factory = sqlite3.Row
 #try:
 infected_sheeps = {'s1': '2016-01-01'}
 
