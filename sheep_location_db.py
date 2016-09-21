@@ -60,7 +60,7 @@ conn.row_factory = sqlite3.Row
 #try:
 
 conn.execute("DELETE FROM exposure_incident")
-conn.execute("INSERT INTO exposure_incident (receiver_animal_eid, animal_exposure_date) VALUES (?, ?)", ('s1', '2016-02-01',))
+conn.execute("INSERT INTO exposure_incident (receiver_animal_eid, animal_exposure_date) VALUES (?, ?)", ('s1', '2016-02-01 00:00:00.000',))
 
 dosomething()
 
@@ -78,4 +78,6 @@ conn.close()
 
 # todo:
 # cant expose to a previous location (split the day in half, or thirds (departure, waystation, destination))
-# no tagbacks (check to ensure that you arent exposing the sheep that exposed you)
+    # you cant expose to another sheep on the day you were initially exposed
+        #but what if you were in 3 locations in one day (carrying the exposure from loc2 to loc3, but not back to loc1)
+
