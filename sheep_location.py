@@ -4,7 +4,7 @@ from datetime import datetime as dt
 import datetime
 sys.path.append('C:\\Python27\\Lib\\site-packages\\MySQLdb')
 
-dbpath = "C:\\Users\\mtags\\Desktop\\sheep.db"
+dbpath = "animal_tracker.db"
 
 def dosomething(conn, infected_sheeps):
     print("entering dosomething")
